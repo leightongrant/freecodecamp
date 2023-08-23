@@ -1,10 +1,14 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import RandomQuoteMachine from './pages/RandomQuoteMachine';
 
 function App() {
   return (
-    <>
-      <h1>FreeCodeCamp Projects</h1>
-    </>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/random-quote-machine' element={<RandomQuoteMachine />} />
+    </Routes>
   );
 }
 
