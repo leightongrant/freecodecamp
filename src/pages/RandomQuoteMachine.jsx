@@ -1,5 +1,11 @@
+import Quotes from '../components/Quotes';
+
 function RandomQuoteMachine() {
-  return <h1>Random Quote Machine</h1>;
+  return (
+    <section>
+      <Quotes />
+    </section>
+  );
 }
 
 export default RandomQuoteMachine;
