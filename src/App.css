@@ -1,0 +1,13 @@
+#quote-box-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+  background-color: aqua;
+}
+
+#quote-box {
+  background-color: aliceblue;
+  padding: 3em;
+  border-radius: 5px;
+}
