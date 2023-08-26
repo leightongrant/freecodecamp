@@ -1,13 +1,36 @@
+:root {
+    --full-height: calc(100vh - 56px);
+}
 #quote-box-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 56px);
-  background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--full-height);
+    /* -webkit-transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    -ms-transition: background 0.5s linear;
+    -o-transition: background 0.5s linear; */
+    transition: background 4.5s linear;
+}
+
+#homepage {
+    height: var(--full-height);
+    background-color: #ff3cac;
+    background-image: linear-gradient(
+        225deg,
+        #ff3cac 0%,
+        #784ba0 50%,
+        #2b86c5 100%
+    );
+}
+#homepage h1 {
+    font-size: 4em;
+    font-weight: 900;
+    color: white;
 }
 
 #quote-box {
-  background-color: aliceblue;
-  padding: 3em;
-  border-radius: 5px;
+    background-color: white;
+    padding: 3em;
+    border-radius: 5px;
 }
