@@ -30,7 +30,7 @@
 }
 
 #quote-box {
-    max-width: 50%;
+    width: 60%;
     background-color: white;
     padding: 3em;
     border-radius: 5px;
@@ -40,4 +40,13 @@
     -ms-transition: color 1s linear;
     -o-transition: color 1s linear;
     transition: color 1s linear;
+
+    box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+    -webkit-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+    -moz-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+}
+@media (max-width: 991.98px) {
+    #quote-box {
+        width: 80%;
+    }
 }

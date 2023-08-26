@@ -8,23 +8,26 @@ function Header() {
         <Navbar expand='lg' className='bg-body-tertiary'>
             <Container>
                 <Navbar.Brand href='/'>FCC Projects</Navbar.Brand>
-                <Nav variant='underline' as='ul'>
-                    <Nav.Item as='li'>
-                        <LinkContainer to={'/'}>
-                            <Nav.Link>Home</Nav.Link>
-                        </LinkContainer>
-                    </Nav.Item>
-                    <Nav.Item as='li'>
-                        <LinkContainer to={'/random-quote-machine'}>
-                            <Nav.Link eventKey='Quote Machine'>
-                                Quote Machine
-                            </Nav.Link>
-                        </LinkContainer>
-                    </Nav.Item>
-                    <Nav.Item as='li'>
-                        <Nav.Link eventKey='link-2'>Link</Nav.Link>
-                    </Nav.Item>
-                </Nav>
+                <Navbar.Toggle aria-controls='basic-navbar-nav' />
+                <Navbar.Collapse
+                    id='basic-navbar-nav'
+                    className='justify-content-end'
+                >
+                    <Nav variant='underline' as='ul'>
+                        <Nav.Item as='li'>
+                            <LinkContainer to={'/'}>
+                                <Nav.Link>Home</Nav.Link>
+                            </LinkContainer>
+                        </Nav.Item>
+                        <Nav.Item as='li'>
+                            <LinkContainer to={'/random-quote-machine'}>
+                                <Nav.Link eventKey='Quote Machine'>
+                                    Quote Machine
+                                </Nav.Link>
+                            </LinkContainer>
+                        </Nav.Item>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );

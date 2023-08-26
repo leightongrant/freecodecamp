@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
 import Button from 'react-bootstrap/Button';
 import { FaInstagram, FaQuoteLeft, FaTwitter } from 'react-icons/fa';
-function Quotes({ quote, color, setColor, getColor }) {
+function Quotes({ quote, color, setColor, getColor, getQuote, tweet }) {
     const { content, author } = quote;
+
     function handleClick() {
+        getQuote();
         setColor(getColor());
-    }
-    function handleTweet() {
-        console.log({ content });
     }
 
     return (
@@ -26,7 +25,8 @@ function Quotes({ quote, color, setColor, getColor }) {
                     style={{ background: color, border: 0 }}
                     id='tweet-quote'
                     as='a'
-                    onClick={handleTweet}
+                    href={tweet}
+                    target='_blank'
                 >
                     <FaTwitter />
                 </Button>

@@ -2,18 +2,9 @@ import Quotes from '../components/Quotes';
 import { useEffect, useState } from 'react';
 
 function RandomQuoteMachine() {
-    const [quote, setQuote] = useState({
-        _id: '1WZnUSS47PTK',
-        content:
-            'We are either progressing or retrograding all the while. There is no such thing as remaining stationary in this life.',
-        author: 'James Freeman Clarke',
-        tags: ['Famous Quotes'],
-        authorSlug: 'james-freeman-clarke',
-        length: 117,
-        dateAdded: '2021-04-15',
-        dateModified: '2023-04-14',
-    });
+    const [quote, setQuote] = useState('');
     const [color, setColor] = useState('rgb(255,255,255)');
+    const [tweet, setTweet] = useState(null);
 
     function getColor() {
         const r = Math.random() * 200;
@@ -22,8 +13,26 @@ function RandomQuoteMachine() {
         return `rgb(${r},${g},${b})`;
     }
 
+    async function getQuote() {
+        try {
+            const res = await fetch('https://api.quotable.io/random');
+            if (res.status === 200) {
+                const data = await res.json();
+                setQuote(data);
+                setTweet(
+                    encodeURI(
+                        `https://www.twitter.com/intent/tweet?text=${data.content} --${data.author}`
+                    )
+                );
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
-        //setColor(getColor());
+        getQuote();
+        setColor(getColor());
     }, []);
 
     return (
@@ -34,6 +43,8 @@ function RandomQuoteMachine() {
                 color={color}
                 setColor={setColor}
                 getColor={getColor}
+                getQuote={getQuote}
+                tweet={tweet}
             />
         </section>
     );
