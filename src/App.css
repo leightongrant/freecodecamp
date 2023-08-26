@@ -1,52 +1,41 @@
 :root {
-    --full-height: calc(100vh - 56px);
+  --full-height: calc(100vh - 56px);
 }
 #quote-box-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: var(--full-height);
-    -webkit-transition: background 1s linear;
-    -moz-transition: background 1s linear;
-    -ms-transition: background 1s linear;
-    -o-transition: background 1s linear;
-    transition: background 1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--full-height);
+  -webkit-transition: background 1s linear;
+  -moz-transition: background 1s linear;
+  -ms-transition: background 1s linear;
+  -o-transition: background 1s linear;
+  transition: background 1s linear;
 }
 
 #homepage {
-    height: var(--full-height);
-    background-color: #ff3cac;
-    background-image: linear-gradient(
-        225deg,
-        #ff3cac 0%,
-        #784ba0 50%,
-        #2b86c5 100%
-    );
+  height: var(--full-height);
+  background-color: #ff3cac;
+  background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
 }
 #homepage h1 {
-    font-size: 4em;
-    font-weight: 900;
-    color: white;
+  font-size: 4em;
+  font-weight: 900;
+  color: white;
 }
 
 #quote-box {
-    width: 60%;
-    background-color: white;
-    padding: 3em;
-    border-radius: 5px;
+  background-color: white;
+  padding: 3em;
+  border-radius: 5px;
 
-    -webkit-transition: color 1s linear;
-    -moz-transition: color 1s linear;
-    -ms-transition: color 1s linear;
-    -o-transition: color 1s linear;
-    transition: color 1s linear;
+  -webkit-transition: color 1s linear;
+  -moz-transition: color 1s linear;
+  -ms-transition: color 1s linear;
+  -o-transition: color 1s linear;
+  transition: color 1s linear;
 
-    box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
-    -webkit-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
-    -moz-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
-}
-@media (max-width: 991.98px) {
-    #quote-box {
-        width: 80%;
-    }
+  box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+  -webkit-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+  -moz-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
 }
