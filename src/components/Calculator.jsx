@@ -2,73 +2,42 @@
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-function Calculator({ output, expressions }) {
-  const [display, setDisplay] = output;
+function Calculator({ results, expressions }) {
+  // States
+  const [result, setResult] = results;
   const [expression, setExpression] = expressions;
 
+  // Event handlers
   function handleNum(e) {
     const val = e.target.value;
-    if (/\./.test(expression) && val === '.') {
-      return;
-    }
-    if(expression === 0 && val === '0'){
-      return
-    }
-    if (expression === 0) {
-      setExpression(val);
-      setDisplay(val);
-    } else if (expression === '.') {
-      setDisplay(`0.${val}`);
-    } else if (/[0-9.]/.test(expression[expression.length - 1])) {
-      setExpression(preVal => (preVal += val));
-      setDisplay(preVal => (preVal += val));
-    } else {
-      setExpression(val);
-      setDisplay(preVal => (preVal += val));
-    }
+   console.log(val)
+    
   }
+
   function handleOperator(e) {
     const val = e.target.value;
-    if (/\d/.test(expression[expression.length - 1])) {
-      setExpression(val);
-      setDisplay(pre => (pre += val));
-    }
+    console.log(val)
   }
+
   function handleEquals(e) {
     let val = e.target.value;
-
-    if (!/=/.test(display)) {
-      if (/^\d+$/.test(display) || expression === 0) {
-        console.log(display, 'else block');
-        if (display === null) {
-          setDisplay(expression);
-        } else {
-          val += expression;
-          setDisplay(pre => (pre += val));
-        }
-      } else if (/^\d+.+\d$/.test(display)) {
-        let answer = eval(display);
-        if (!Number.isInteger(answer)) {
-          answer = answer.toFixed(2);
-        }
-        val += String(answer);
-        setDisplay(pre => (pre += val));
-        setExpression(answer);
-      } else setDisplay('Invalid Expression');
-    }
+    console.log(val)
   }
 
   function handleClear() {
-    setDisplay(null);
+    setResult('cleared');
     setExpression(0);
   }
 
+  // Main
   return (
     <Container className='d-flex align-items-center justify-content-center'>
       <Row id='calc'>
-        <output id='display'>{display}</output>
-        <output id='expression'>{expression}</output>
-        <Button className='btn btn-danger' id='clear' onClick={handleClear}>
+        <div id='display' className='d-flex flex-column justify-content-center' >
+          <div id='result' className='d-flex justify-content-end'>{result}</div>
+          <div id='expression' className='d-flex justify-content-end'>{expression}</div>
+        </div>        
+        <Button className='btn btn-danger clear' id='clear' onClick={handleClear}>
           AC
         </Button>
         <Button id='devide' value='/' className='operator btn btn-info' onClick={handleOperator}>

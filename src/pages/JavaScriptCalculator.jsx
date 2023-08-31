@@ -2,11 +2,11 @@ import Calculator from '../components/Calculator';
 import { useState } from 'react';
 
 function JavaScriptCalculator() {
-  const [display, setDisplay] = useState(null);
+  const [result, setResult] = useState('result');
   const [expression, setExpression] = useState(0);
   return (
     <section id='js-calc' className='d-flex align-items-center justify-content-center'>
-      <Calculator output={[display, setDisplay]} expressions={[expression, setExpression]} />
+      <Calculator results={[result, setResult]} expressions={[expression, setExpression]} />
     </section>
   );
 }
