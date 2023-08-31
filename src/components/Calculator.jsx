@@ -11,6 +11,9 @@ function Calculator({ output, expressions }) {
     if (/\./.test(expression) && val === '.') {
       return;
     }
+    if(expression === 0 && val === '0'){
+      return
+    }
     if (expression === 0) {
       setExpression(val);
       setDisplay(val);
