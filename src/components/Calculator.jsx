@@ -16,7 +16,7 @@ function Calculator({ output, expressions }) {
       setDisplay(val);
     } else if (expression === '.') {
       setDisplay(`0.${val}`);
-    } else if (/\d/.test(expression[expression.length - 1])) {
+    } else if (/[0-9.]/.test(expression[expression.length - 1])) {
       setExpression(preVal => (preVal += val));
       setDisplay(preVal => (preVal += val));
     } else {
