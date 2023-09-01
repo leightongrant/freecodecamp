@@ -2,30 +2,109 @@
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
-function Calculator({ results, expressions }) {
+function Calculator({ displays, expressions }) {
   // States
-  const [result, setResult] = results;
+  const [display, setDisplay] = displays;
   const [expression, setExpression] = expressions;
 
   // Event handlers
   function handleNum(e) {
     const val = e.target.value;
-   console.log(val)
+
+    if(display === 0 && val === '0'){
+      return;
+    }
+
+    if(display === 0){
+      setDisplay(val)
+      setExpression(val)
+    }
+
+    if(/[=]/.test(display)){
+      setExpression(val)
+      setDisplay(val)
+      return
+    }
+
+
+    if(display !== 0){
+      setDisplay(pre=>pre+val)
+      setExpression(pre=>pre+val)
+    }
     
+  }
+
+  function handleDecimal(e){
+    const val = e.target.value;
+    if(/[.]/.test(expression)){
+      return;
+    }
+    setDisplay(pre=>pre += val)
+    setExpression(pre=>pre += val)
+
   }
 
   function handleOperator(e) {
     const val = e.target.value;
-    console.log(val)
+
+    //TODO: check for two minus or plus signs
+    
+    if(expression === 0){
+      setExpression(val)
+      setDisplay(val)
+      return;
+    }
+
+    const operator = expression[expression.length - 1]
+    
+    
+    if(expression !== 0){
+      if(/\D/.test(operator)){
+        setExpression(val)
+        setDisplay(pre=>{
+          let newStr = pre.slice(0, pre.length - 1)
+          return newStr += val
+        })
+        return;
+      }
+  
+      setExpression(val)
+      setDisplay(pre=>pre += val)
+    }
   }
 
   function handleEquals(e) {
     let val = e.target.value;
-    console.log(val)
+    let result;
+
+    if(/[=]/.test(display)){
+      return;
+    }
+
+    if(/^[/*]/.test(display)){
+      return;
+    }
+
+    if(/\D$/.test(display)){
+      return
+    }
+
+    if(/^[0-9+-]/.test(display)){
+      if(/^[0-9+-].*\d$/.test(display)){
+        result = eval(display)        
+      }else{
+        result = eval(display)
+      }
+      
+    }
+    
+    setDisplay(pre => pre += ` ${val} ${result}`)
+    setExpression(result)
+    
   }
 
   function handleClear() {
-    setResult('cleared');
+    setDisplay(0);
     setExpression(0);
   }
 
@@ -33,8 +112,8 @@ function Calculator({ results, expressions }) {
   return (
     <Container className='d-flex align-items-center justify-content-center'>
       <Row id='calc'>
-        <div id='display' className='d-flex flex-column justify-content-center' >
-          <div id='result' className='d-flex justify-content-end'>{result}</div>
+        <div id='output' className='d-flex flex-column justify-content-center' >
+          <div id='display' className='d-flex justify-content-end'>{display}</div>
           <div id='expression' className='d-flex justify-content-end'>{expression}</div>
         </div>        
         <Button className='btn btn-danger clear' id='clear' onClick={handleClear}>
@@ -85,7 +164,7 @@ function Calculator({ results, expressions }) {
         <Button id='zero' value='0' className='num btn btn-secondary' onClick={handleNum}>
           0
         </Button>
-        <Button id='decimal' value='.' className='num btn btn-secondary' onClick={handleNum}>
+        <Button id='decimal' value='.' className='num btn btn-secondary' onClick={handleDecimal}>
           .
         </Button>
       </Row>
