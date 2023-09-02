@@ -44,6 +44,12 @@ function Calculator({ displays, expressions }) {
       return;
     }
 
+    if (/\D$/.test(display)) {
+      setDisplay((pre) => (pre += `0${val}`));
+      setExpression((pre) => (pre += `0${val}`));
+      return;
+    }
+
     if (/=/.test(display)) {
       setDisplay(`0${val}`);
       setExpression(val);
@@ -56,7 +62,9 @@ function Calculator({ displays, expressions }) {
   function handleOperator(e) {
     const val = e.target.value;
 
-    //TODO: check for two minus or plus signs
+    if (/=/.test(display)) {
+      setDisplay(expression);
+    }
 
     if (expression === 0) {
       setExpression(val);
@@ -117,6 +125,13 @@ function Calculator({ displays, expressions }) {
         }
       } else {
         result = eval(finalExpression);
+      }
+    }
+
+    if (/\./.test(result)) {
+      result = result.toFixed(4);
+      if (/0+$/.test(result)) {
+        result = result.replace(/0+$/, "");
       }
     }
 
