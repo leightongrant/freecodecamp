@@ -44,6 +44,12 @@ function Calculator({ displays, expressions }) {
       return;
     }
 
+    if (/\D$/.test(display)) {
+      setDisplay((pre) => (pre += `0${val}`));
+      setExpression((pre) => (pre += `0${val}`));
+      return;
+    }
+
     if (/=/.test(display)) {
       setDisplay(`0${val}`);
       setExpression(val);
