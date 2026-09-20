@@ -1,0 +1,9 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "ignorePatterns": ["node_modules/**/*", "dist/**/*", ".eslintrc.cjs"],
+    "tabWidth": 4,
+    "quoteStyle": "single",
+    "semi": false,
+    "singleQuote": true,
+    "sortImports": true
+}
