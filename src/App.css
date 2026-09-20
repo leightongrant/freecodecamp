@@ -1,155 +1,161 @@
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100&family=Quicksand:wght@300;400;500;600;700&display=swap");
 :root {
-  --full-height: calc(100vh - 56px);
+    --full-height: calc(100svh - 56px);
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
 }
 
 #quote-box-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--full-height);
-  -webkit-transition: background 1s linear;
-  -moz-transition: background 1s linear;
-  -ms-transition: background 1s linear;
-  -o-transition: background 1s linear;
-  transition: background 1s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--full-height);
+    -webkit-transition: background 1s linear;
+    -moz-transition: background 1s linear;
+    -ms-transition: background 1s linear;
+    -o-transition: background 1s linear;
+    transition: background 1s linear;
 }
 
 #homepage {
-  height: var(--full-height);
-  background-color: #ff3cac;
-  background-image: linear-gradient(
-    225deg,
-    #ff3cac 0%,
-    #784ba0 50%,
-    #2b86c5 100%
-  );
+    height: var(--full-height);
+    background-color: #ff3cac;
+    background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
 }
 #homepage h1 {
-  font-size: 4em;
-  font-weight: 900;
-  color: white;
+    font-size: 4em;
+    font-weight: 900;
+    color: white;
 }
 
 #quote-box {
-  background-color: white;
-  padding: 3em;
-  border-radius: 5px;
+    background-color: white;
+    padding: 3em;
+    border-radius: 5px;
 
-  -webkit-transition: color 1s linear;
-  -moz-transition: color 1s linear;
-  -ms-transition: color 1s linear;
-  -o-transition: color 1s linear;
-  transition: color 1s linear;
+    -webkit-transition: color 1s linear;
+    -moz-transition: color 1s linear;
+    -ms-transition: color 1s linear;
+    -o-transition: color 1s linear;
+    transition: color 1s linear;
 
-  box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
-  -webkit-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
-  -moz-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+    -webkit-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+    -moz-box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
+    box-shadow: -1px -1px 19px 1px rgba(0, 0, 0, 0.84);
 }
 
 #js-calc {
-  height: var(--full-height);
-  background-color: darkolivegreen;
+    height: var(--full-height);
+    background-color: darkolivegreen;
 }
 
 #calc {
-  display: grid;
-  width: 400px;
-  height: 600px;
-  gap: 10px;
-  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "output output output output"
-    "clear clear devide multiply"
-    "seven eight nine subtract"
-    "four five six add"
-    "one two three equals"
-    "zero zero decimal equals";
-  background: rgb(82, 81, 81);
-  padding: 15px;
+    display: grid;
+    width: 400px;
+    height: 600px;
+    gap: 10px;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        'output output output output'
+        'clear clear devide multiply'
+        'seven eight nine subtract'
+        'four five six add'
+        'one two three equals'
+        'zero zero decimal equals';
+    background: rgb(82, 81, 81);
+    padding: 15px;
 }
 
 .operator {
-  background: gray;
+    background: gray;
 }
 .num,
 .operator,
 .clear {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  font-weight: 800;
-  color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: 800;
+    color: white;
 }
 
 #expression {
-  font-size: 1.5em;
-  font-family: "Big Shoulders Text", cursive;
-  font-weight: 700;
+    font-size: 1.5em;
+    font-family: 'Big Shoulders Text', cursive;
+    font-weight: 700;
 }
 #display {
-  font-size: 3em;
-  font-family: "Big Shoulders Text", cursive;
-  font-weight: 700;
+    font-size: 3em;
+    font-family: 'Big Shoulders Text', cursive;
+    font-weight: 700;
 }
 #output {
-  grid-area: output;
-  background-color: rgb(207, 200, 158);
-  color: rgb(82, 81, 81);
-  overflow: scroll;
-  overflow-y: hidden;
-  overflow-x: hidden;
+    grid-area: output;
+    background-color: rgb(207, 200, 158);
+    color: rgb(82, 81, 81);
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #clear {
-  grid-area: clear;
+    grid-area: clear;
 }
 #devide {
-  grid-area: devide;
+    grid-area: devide;
 }
 #multiply {
-  grid-area: multiply;
+    grid-area: multiply;
 }
 #seven {
-  grid-area: seven;
+    grid-area: seven;
 }
 #eight {
-  grid-area: eight;
+    grid-area: eight;
 }
 #nine {
-  grid-area: nine;
+    grid-area: nine;
 }
 #subtract {
-  grid-area: subtract;
+    grid-area: subtract;
 }
 #four {
-  grid-area: four;
+    grid-area: four;
 }
 #five {
-  grid-area: five;
+    grid-area: five;
 }
 #six {
-  grid-area: six;
+    grid-area: six;
 }
 #add {
-  grid-area: add;
+    grid-area: add;
 }
 #one {
-  grid-area: one;
+    grid-area: one;
 }
 #two {
-  grid-area: two;
+    grid-area: two;
 }
 #three {
-  grid-area: three;
+    grid-area: three;
 }
 #equals {
-  grid-area: equals;
+    grid-area: equals;
 }
 #zero {
-  grid-area: zero;
+    grid-area: zero;
 }
 #decimal {
-  grid-area: decimal;
+    grid-area: decimal;
 }
